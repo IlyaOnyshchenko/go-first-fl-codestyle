@@ -13,6 +13,9 @@ const (
 	unknown = "неизвестный класс персонажа"
 )
 
+func randint(min, max int) int {
+	return rand.Intn(max-min) + min
+}
 func harmDestiny(charName string, harm int) string {
 	return fmt.Sprintf("%s нанес урон противнику равный %d.", charName, harm)
 }
@@ -64,7 +67,7 @@ func special(charName, charClass string) string {
 }
 
 // здесь обратите внимание на имена параметров
-func start_training(charName, charClass string) string {
+func startTraining(charName, charClass string) string {
 	switch charClass {
 	case warrior:
 		fmt.Printf("%s, ты Воитель - отличный боец ближнего боя.\n", charName)
@@ -133,9 +136,5 @@ func main() {
 
 	charClass := choiseCharClass()
 
-	fmt.Println(start_training(charName, charClass))
-}
-
-func randint(min, max int) int {
-	return rand.Intn(max-min) + min
+	fmt.Println(startTraining(charName, charClass))
 }
